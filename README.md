@@ -1,2 +1,2 @@
 # OmniTFT-Fais-Wanzhe
-Implementation for OmniTFT: Multi Centre Data Driven Forecasting for Vital Sign Trajectories and laboratory measurements in the ICU patients
+Implementation for OmniTFT: Multi-target forecasting for vital signs and laboratory trajectories in critically ill patients: an interpretable deep learning model
