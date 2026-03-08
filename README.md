@@ -32,6 +32,7 @@ OmniTFT/
 │   ├── experiment_setup.py     # Experiment settings manager
 │   └── __init__.py
 ├── train_pipeline.py        # Main training script
+├── multi_task_predictor.py  # Simultaneous multi-task inference utility
 ├── icu_env.yml             # Conda environment specification
 └── README.md
 ```
@@ -69,11 +70,47 @@ python train_pipeline.py . yes
 # Train on all targets with CPU
 python train_pipeline.py . no
 
+# Train all targets in parallel
+python train_pipeline.py . yes --parallel
+
 # Specify custom output folder
 python train_pipeline.py /path/to/output yes
+
+# Train a single target
+python train_pipeline.py . yes --task Lactate
 ```
 
-### Training Multiple Targets
+### Parallel Training and Multi-Task Inference
+
+- By default, `train_pipeline.py` trains all configured targets sequentially.
+- With `--parallel`, each target is launched in an independent process and assigned a GPU automatically when available.
+- In parallel mode, each target writes to its own log file under `logs/parallel_<timestamp>/`.
+- After all target-specific training jobs finish, the pipeline automatically loads all trained models and runs multi-task simultaneous inference.
+- Prediction outputs are saved both per target and as merged combined files in `outputs/results/combined/`.
+
+### Standalone Multi-Task Inference
+
+You can also load trained checkpoints directly and run joint inference without retraining:
+
+```python
+from multi_task_predictor import MultiTaskPredictor
+
+predictor = MultiTaskPredictor.load_from_saved(
+    model_root='outputs/saved_models',
+    tasks=['Creatinine', 'Lactate', 'RespiratoryRate'],
+    use_gpu=True)
+
+results = predictor.predict_all(test_data_override={
+    'Creatinine': creatinine_df,
+    'Lactate': lactate_df,
+    'RespiratoryRate': respiratory_df,
+})
+
+combined_df = predictor.get_combined_predictions(quantile='p50')
+predictor.save_results('outputs/results')
+predictor.close()
+```
+
 ### Key Features
 
 📊 **Supported Clinical Targets:**
@@ -135,7 +172,9 @@ The framework will automatically:
 - Load your data
 - Apply your formatter
 - Train the model
-- Save results to `outputs/saved_models/YourTarget/` and `outputs/results/YourTarget/`
+- Save checkpoints to `outputs/saved_models/YourTarget/`
+- Save per-target predictions to `outputs/results/YourTarget/`
+- Save merged multi-task predictions to `outputs/results/combined/`
 
 ## Citation
 
