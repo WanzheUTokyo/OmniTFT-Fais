@@ -124,7 +124,7 @@ predictor.close()
 - SF Ratio
 - *Extensible to other ICU parameters*
 
-Here we only show three files as an example. If you wanna to add new labels you need to add new files here.
+OmniTFT trains all configured targets jointly within a single unified model. To add a new clinical target, register it in the multi-target output configuration and provide the corresponding target metadata; the model will then learn an additional output head within the same shared backbone.
 ```python
 FORMATTERS_TO_TRAIN = [
     "Lactate",
