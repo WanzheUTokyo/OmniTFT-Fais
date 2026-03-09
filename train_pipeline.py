@@ -341,9 +341,6 @@ if __name__ == "__main__":
     print("Training targets: {}".format(", ".join(tasks_to_train)))
     print("Training mode: {}".format("PARALLEL" if use_parallel else "SEQUENTIAL"))
 
-    # =====================================================
-    # Phase 1: Train all tasks independently
-    # =====================================================
     if use_parallel:
         launch_parallel_training(tasks_to_train, output_folder, use_tensorflow_with_gpu)
 
@@ -365,9 +362,6 @@ if __name__ == "__main__":
         print("Skipping phase 2 inference as requested.")
         sys.exit(0)
 
-    # =====================================================
-    # Phase 2: Multi-task simultaneous inference
-    # =====================================================
     print("\n" + "="*80)
     print("Phase 2: Multi-task simultaneous inference")
     print("="*80 + "\n")
