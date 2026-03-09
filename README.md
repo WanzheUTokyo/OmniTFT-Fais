@@ -80,13 +80,12 @@ python train_pipeline.py /path/to/output yes
 python train_pipeline.py . yes --task Lactate
 ```
 
-### Parallel Training and Multi-Task Inference
+### Multi-Target Forecasting Workflow
 
-- By default, `train_pipeline.py` trains all configured targets sequentially.
-- With `--parallel`, each target is launched in an independent process and assigned a GPU automatically when available.
-- In parallel mode, each target writes to its own log file under `logs/parallel_<timestamp>/`.
-- After all target-specific training jobs finish, the pipeline automatically loads all trained models and runs multi-task simultaneous inference.
-- Prediction outputs are saved both per target and as merged combined files in `outputs/results/combined/`.
+- OmniTFT supports a unified forecasting workflow across multiple clinical targets.
+- Each target uses a target-specific temporal configuration, including resampling interval, encoder length, and prediction horizon.
+- The model generates multi-horizon quantile forecasts for each configured target.
+- Prediction results are stored for downstream evaluation and clinical analysis.
 
 ### Standalone Multi-Task Inference
 
