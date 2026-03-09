@@ -1,25 +1,4 @@
-"""Multi-task simultaneous predictor for OmniTFT.
 
-Loads all trained task models simultaneously into memory and produces
-combined predictions in a single predict_all() call.
-
-Usage during training (called by train_pipeline.py):
-    predictor = MultiTaskPredictor(trained_tasks, use_gpu)
-    combined = predictor.predict_all()
-    predictor.print_metrics()
-    predictor.save_results(results_root)
-    predictor.close()
-
-Standalone inference on new data:
-    from multi_task_predictor import MultiTaskPredictor
-    predictor = MultiTaskPredictor.load_from_saved(
-        model_root='outputs/saved_models',
-        tasks=['Creatinine', 'Lactate', 'RespiratoryRate'],
-        use_gpu=True)
-    results = predictor.predict_all(test_data_override={
-        'Creatinine': cre_df, 'Lactate': lac_df, 'RespiratoryRate': resp_df})
-    combined_df = predictor.get_combined_predictions(quantile='p50')
-"""
 
 import gc
 import os
@@ -180,16 +159,7 @@ class MultiTaskPredictor:
         return self._results
 
     def get_combined_predictions(self, quantile='p50'):
-        """Merge predictions from all tasks by patient identifier (outer join).
 
-        For the same patient, all task predictions appear in the same row.
-
-        Args:
-            quantile: which quantile to merge ('p10', 'p50', or 'p90')
-
-        Returns:
-            DataFrame: identifier | forecast_time | {task}_t+0 | ... for all tasks
-        """
         if not self._results:
             raise ValueError(
                 "No predictions available. Call predict_all() first.")
@@ -215,7 +185,7 @@ class MultiTaskPredictor:
         return combined
 
     def print_metrics(self):
-        """Print per-task quantile loss metrics."""
+
         if not self._results:
             print("No results available. Call predict_all() first.")
             return
@@ -231,11 +201,7 @@ class MultiTaskPredictor:
         print("\n" + "=" * 60)
 
     def save_results(self, results_root):
-        """Save per-task and combined predictions to CSV files.
 
-        Args:
-            results_root: root directory for results (e.g., outputs/results/)
-        """
         if not self._results:
             print("No results to save. Call predict_all() first.")
             return
