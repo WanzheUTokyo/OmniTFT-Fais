@@ -10,16 +10,16 @@ import data_formatter.base_formatter as base
 import training.training_utils as utils
 
 
-BIN_MIN        = 10     # Time resolution (minutes): The duration of each time step
-MAX_STEPS      = 72    # Encoder step count: Length of the historical time window used for observation
-HORIZON_STEPS  = 12    # Predicted steps: The number of future time steps to be predicted
+BIN_MIN        =      # Time resolution (minutes): The duration of each time step
+MAX_STEPS      =     # Encoder step count: Length of the historical time window used for observation
+HORIZON_STEPS  =     # Predicted steps: The number of future time steps to be predicted
 TOTAL_STEPS    = MAX_STEPS + HORIZON_STEPS
-WINDOW_HOURS   = 48    # Data window (hours): Maximum time span retained from admission onwards
-SPLIT_SEED     = 42    # Random seed: Used for train/valid/test partitioning
-RES_ITEM_IDS   = [615, 618, 220210]  # Excluded item IDs
-DYN_DELTA      = 5.0   # Dynamic threshold: Respiratory rate variation threshold for determining whether a window is 'dynamic'
-EPS            = 1e-8  # Numerical Stability Constant
-BALANCE_RATIO  = 0.5   # Sampling balance ratio: Stable window = Dynamic window × BALANCE_RATIO
+WINDOW_HOURS   =     # Data window (hours): Maximum time span retained from admission onwards
+SPLIT_SEED     =     # Random seed: Used for train/valid/test partitioning
+RES_ITEM_IDS   =   # Excluded item IDs
+DYN_DELTA      =    # Dynamic threshold: Respiratory rate variation threshold for determining whether a window is 'dynamic'
+EPS            =   # Numerical Stability Constant
+BALANCE_RATIO  =    # Sampling balance ratio: Stable window = Dynamic window × BALANCE_RATIO
 MISSING_THRESHOLD = 0.8  # Missing rate threshold: Exceeding this proportion is deemed excessive missing data.
 MAX_GAP_HOURS    = 6
 GenericDataFormatter = base.GenericDataFormatter
