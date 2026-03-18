@@ -24,7 +24,6 @@ OmniTFT/
 │   └── __init__.py
 ├── data_formatter/          # Targets definition
 │   ├── base_formatter.py       # Abstract base class
-│   ├── lactate_formatter.py    # Lactate prediction formatter
 │   ├── creatinine_formatter.py # Creatinine prediction formatter
 │   ├── respiratory_formatter.py# Respiratory rate formatter
 │   └── __init__.py
@@ -77,7 +76,7 @@ python train_pipeline.py . yes --parallel
 python train_pipeline.py /path/to/output yes
 
 # Train a single target
-python train_pipeline.py . yes --task Lactate
+python train_pipeline.py . yes --task Creatinine
 ```
 
 ### Multi-Target Forecasting Workflow
@@ -96,7 +95,7 @@ from multi_task_predictor import MultiTaskPredictor
 
 predictor = MultiTaskPredictor.load_from_saved(
     model_root='outputs/saved_models',
-    tasks=['Creatinine', 'Lactate', 'RespiratoryRate'],
+    tasks=['Creatinine', 'RespiratoryRate'],
     use_gpu=True)
 
 results = predictor.predict_all(test_data_override={
