@@ -1,5 +1,12 @@
 # OmniTFT: Omni Target Forecasting for Vital Signs and Laboratory Result Trajectories in Multi Center ICU Data
 
+> 🚨 **CRITICAL LICENSE NOTICE: STRICTLY NON-COMMERCIAL** 
+> This software is now strictly restricted to personal, academic, and non-profit educational use. **ANY form of commercial use is STRICTLY PROHIBITED.** This includes, but is not limited to:
+> * Integration into commercial products or SaaS platforms.
+> * Use within the internal environments of any corporate or for-profit entity.
+> * Any use that generates direct or indirect financial gain.
+> By using, downloading, or modifying this code, you agree to these terms. For full details, please read the `LICENSE` file.
+
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
 [![TensorFlow 2.10](https://img.shields.io/badge/TensorFlow-2.10-orange.svg)](https://www.tensorflow.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
