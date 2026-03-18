@@ -12,14 +12,14 @@ import data_formatter.base_formatter as base
 import training.training_utils as utils
 
 
-BIN_MIN        = 120
-MAX_STEPS      = 12
-HORIZON_STEPS  = 12
+BIN_MIN        = 
+MAX_STEPS      = 
+HORIZON_STEPS  = 
 TOTAL_STEPS    = MAX_STEPS + HORIZON_STEPS
 
-WINDOW_HOURS   = 48
-SPLIT_SEED     = 2025 
-CRE_ITEM_IDS   = [50912, 52024, 52546]
+WINDOW_HOURS   = 
+SPLIT_SEED     = 
+CRE_ITEM_IDS   = 
 DYN_DELTA      = 0.30
 EPS            = 1e-9
 BALANCE_RATIO  = 1.0
