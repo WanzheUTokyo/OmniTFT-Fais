@@ -185,7 +185,10 @@ If you use OmniTFT in your research, please cite:
 Lim, B., Arık, S. Ö., Loeff, N., & Pfister, T. (2021). Temporal fusion transformers for interpretable multi-horizon time series forecasting. International journal of forecasting, 37(4), 1748-1764.
 ## License
 
-This project is licensed under the MIT License
+This project is licensed under the PolyForm Noncommercial License 1.0.0
+
+Copyright (c) 2026 [Wanzhe Xu / https://github.com/WanzheUTokyo/OmniTFT-Fais]
+All rights reserved.
 
 ## Acknowledgments
 Computational resources were provided by the supercomputer system SHIROKANE at the Human Genome Center,  Institute of Medical Science, University of Tokyo.
