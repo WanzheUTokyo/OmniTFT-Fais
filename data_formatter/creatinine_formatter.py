@@ -20,11 +20,11 @@ TOTAL_STEPS    = MAX_STEPS + HORIZON_STEPS
 WINDOW_HOURS   = 
 SPLIT_SEED     = 
 CRE_ITEM_IDS   = 
-DYN_DELTA      = 0.30
-EPS            = 1e-9
-BALANCE_RATIO  = 1.0
-MISSING_THRESHOLD = 0.8
-MAX_GAP_HOURS    = 6
+DYN_DELTA      = 
+EPS            = 
+BALANCE_RATIO  = 
+MISSING_THRESHOLD = 
+MAX_GAP_HOURS    = 
 
 GenericDataFormatter = base.GenericDataFormatter
 DataTypes            = base.DataTypes
