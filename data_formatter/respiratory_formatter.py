@@ -20,8 +20,8 @@ RES_ITEM_IDS   =   # Excluded item IDs
 DYN_DELTA      =    # Dynamic threshold: Respiratory rate variation threshold for determining whether a window is 'dynamic'
 EPS            =   # Numerical Stability Constant
 BALANCE_RATIO  =    # Sampling balance ratio: Stable window = Dynamic window × BALANCE_RATIO
-MISSING_THRESHOLD = 0.3  # Missing rate threshold: Exceeding this proportion is deemed excessive missing data.
-MAX_GAP_HOURS    = 6
+MISSING_THRESHOLD =   # Missing rate threshold: Exceeding this proportion is deemed excessive missing data.
+MAX_GAP_HOURS    = 
 GenericDataFormatter = base.GenericDataFormatter
 DataTypes            = base.DataTypes
 InputTypes           = base.InputTypes
