@@ -23,10 +23,10 @@ SPLIT_SEED     =
 
 ALB_ITEM_IDS   =
 
-DYN_DELTA      = 12
-EPS            = 1e-9
+DYN_DELTA      = 
+EPS            = 
 
-BALANCE_RATIO  = 1.0
+BALANCE_RATIO  = 
 
 GenericDataFormatter = base.GenericDataFormatter
 DataTypes            = base.DataTypes
