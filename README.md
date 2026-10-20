@@ -177,9 +177,8 @@ The framework will automatically:
 
 ## Citation
 
-If you use OmniTFT in your research, please cite:
+If you use OmniTFT in your research, please cite:  
 Xu, W., Dai, Y., Yang, Y., Zhang, Z., Loza, M., ZHANG, W., ... & Nakai, K. OmniTFT: An EHR-Driven Multi-Target Forecasting Model for ICU Clinical Decision Support Systems. Frontiers in Digital Health, 8, 1965956.
-
 ```
 ```
 ## Reference
